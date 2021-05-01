@@ -8,14 +8,14 @@ typedef struct {
 } VM;
 
 int selectMenu();
-void addVM(VM *p);
-void readVM(VM *p);
-void listVM(VM *p[], int count);
+void addMenu(VM *p);
+void readMenu(VM *p);
+void listMenu(VM *p[], int count);
 int updateMenu(VM *p);
 int deleteMenu(VM *p);
 int selectNumber(VM *p[], int count);
 void saveData(VM *p[]);
 int loadData(VM *p[]);
-void searchPrice(VM *p[], int count);
 void searchVMByName(VM *p[], int count);
+void searchVMByPrice(VM *p[], int count);
 void searchVMByRank(VM *p[], int count);
