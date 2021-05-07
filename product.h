@@ -14,7 +14,7 @@ void listMenu(VM *p[], int count);
 int updateMenu(VM *p);
 int deleteMenu(VM *p);
 int selectNumber(VM *p[], int count);
-void saveData(VM *p[]);
+void saveData(VM *p[], int count);
 int loadData(VM *p[]);
 void searchVMByName(VM *p[], int count);
 void searchVMByPrice(VM *p[], int count);
