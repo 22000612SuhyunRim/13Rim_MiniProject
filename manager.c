@@ -84,7 +84,7 @@ void searchVMByPrice(VM *p[], int count)
 	printf("검색할 디저트 가격? ");
 	scanf("%d", &searchPrice);
 	printf("\n No     DessertName     type     Price\n");
-	printf("==========================================");
+	printf("==========================================\n");
 	for (int i = 0; i < count; ++i)
 	{
 		if (p[i]->price == -1)
