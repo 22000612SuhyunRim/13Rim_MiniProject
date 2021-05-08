@@ -1,10 +1,12 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
-typedef struct {
+typedef struct
+{
     char name[20];
     char type[20];
     int price;
+    int score;
 } VM;
 
 int selectMenu();
