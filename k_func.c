@@ -1,15 +1,33 @@
-#include "product.h";
+#include "product.h"
+int selectMenu()
+{
+    int menu;
+    printf("\n*** µğÀúÆ® ÀÚÆÇ±â ÇÁ·Î±×·¥ ***\n");
+    printf("1. ¸Ş´º Á¶È¸\n");
+    printf("2. ¸Ş´º Ãß°¡\n");
+    printf("3. ¸Ş´º ¼öÁ¤\n");
+    printf("4. ¸Ş´º »èÁ¦\n");
+    printf("5. ¸Ş´º ÀúÀå\n");
+    printf("6. °¡°İ °Ë»ö\n");
+    printf("7. ÀÌ¸§ °Ë»ö\n");
+    printf("8. Á¡¼ö °Ë»ö\n");
+    printf("0. Á¾·á\n\n");
+    printf("=> ¿øÇÏ´Â ¸Ş´º´Â? ");
+    scanf("%d", &menu);
+
+    return menu;
+}
 int updateMenu(VM *p)
 {
     getchar();
-    printf("ë””ì €íŠ¸ ì´ë¦„ì€? ");
-    fgets(p->name, 100, stdin);
-    printf("ë””ì €íŠ¸ ì¢…ë¥˜ëŠ”? (P/S/R)");
-    scanf("%c", &p->type);
+    printf("µğÀúÆ® ÀÌ¸§Àº? ");
+    scanf("%[^\n]s", p->name);
+    printf("µğÀúÆ® Á¾·ù´Â? (P/S/R)");
+    scanf("%[^\n]s", p->type);
     getchar();
-    printf("ë””ì €íŠ¸ ê°€ê²©ì€? ");
+    printf("µğÀúÆ® °¡°İÀº? ");
     scanf("%d", &p->price);
-    printf("ë””ì €íŠ¸ ì ìˆ˜ëŠ”? (0 ~ 100) ");
+    printf("µğÀúÆ® Á¡¼ö´Â? (0 ~ 100) ");
     scanf("%d", &p->score);
     return 1;
 }
@@ -23,7 +41,7 @@ int selectNumber(VM *p[], int count)
 {
     int no;
     listMenu(p, count);
-    printf("ë²ˆí˜¸ëŠ” (ì·¨ì†Œ: 0)? ");
+    printf("¹øÈ£´Â (Ãë¼Ò: 0)? ");
     scanf("%d", &no);
     return no;
 }
@@ -32,7 +50,7 @@ void searchVMByName(VM *p[], int count)
     int scnt = 0;
     char searchName[30];
 
-    printf("ê²€ìƒ‰í•  ë””ì €íŠ¸ ì´ë¦„?");
+    printf("°Ë»öÇÒ µğÀúÆ® ÀÌ¸§?");
     scanf("%s", searchName);
 
     printf("\n No     DessertName     type     Price    Score\n");
@@ -44,28 +62,28 @@ void searchVMByName(VM *p[], int count)
         if (strstr(p[i]->name, searchName))
         {
             printf("%d ", i + 1);
-            readProduct(p[i]);
+            readMenu(p[i]);
             scnt++;
         }
     }
     if (scnt == 0)
-        printf("=>ê²€ìƒ‰ëœ ë°ì´í„° ì—†ìŒ!");
+        printf("=>°Ë»öµÈ µ¥ÀÌÅÍ ¾øÀ½!");
     printf("\n");
 }
 void searchVMByRank(VM *p[], int count)
 {
     int check = 0;
-    int score = 0;
+    int searchScore = 0;
 
-    printf("ê²€ìƒ‰í•  ë””ì €íŠ¸ ì ìˆ˜? ");
-    scanf("%d", score);
+    printf("°Ë»öÇÒ µğÀúÆ® Á¡¼ö? ");
+    scanf("%d", &searchScore);
     printf("\n No     DessertName     type     Price    Score\n");
     printf("===================================================");
     for (int i = 0; i < count; ++i)
     {
         if (p[i]->score == -1)
             continue;
-        if (strstr(p[i]->score, score) != NULL)
+        if (p[i]->score == searchScore)
         {
             printf("%d", i + 1);
             readMenu(p[i]);
@@ -73,6 +91,6 @@ void searchVMByRank(VM *p[], int count)
         }
     }
     if (check == 0)
-        printf("=> ê²€ìƒ‰ëœ ë°ì´í„° ì—†ìŒ!\n");
+        printf("=> °Ë»öµÈ µ¥ÀÌÅÍ ¾øÀ½!\n");
     printf("\n");
 }

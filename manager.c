@@ -4,15 +4,15 @@
 
 void addMenu(VM *p)
 {
-	printf("ë””ì €íŠ¸ ì´ë¦„ì€? ");
-	fgets(p->name, 100, stdin);
-	printf("ë””ì €íŠ¸ ì¢…ë¥˜ëŠ”? (P/S/R)");
-	scanf("%c", &p->type);
-	printf("ë””ì €íŠ¸ ê°€ê²©ì€? ");
+	printf("µğÀúÆ® ÀÌ¸§Àº? ");
+	scanf("%[^\n]s", p->name);
+	printf("µğÀúÆ® Á¾·ù´Â? (P/S/R)");
+	scanf("%[^\n]s", p->type);
+	printf("µğÀúÆ® °¡°İÀº? ");
 	scanf("%d", &p->price);
-	printf("ë””ì €íŠ¸ ì ìˆ˜ëŠ”? (0 ~ 100) ");
+	printf("µğÀúÆ® Á¡¼ö´Â? (0 ~ 100) ");
 	scanf("%d", &p->score);
-	printf("=> ì¶”ê°€ë¨!\n");
+	printf("=> Ãß°¡µÊ!\n");
 }
 
 void readMenu(VM *p)
@@ -47,7 +47,7 @@ void saveData(VM *p[], int count)
 		fprintf(fp, "%d %d %s %s\n", p[i]->price, p[i]->score, p[i]->type, p[i]->name);
 	}
 	fclose(fp);
-	printf("=> ì €ì¥ë¨!\n");
+	printf("=> ÀúÀåµÊ!\n");
 }
 
 int loadData(VM *p[])
@@ -57,7 +57,7 @@ int loadData(VM *p[])
 	fp = fopen("VendingMachine.txt", "rt");
 	if (fp == NULL)
 	{
-		printf("=> íŒŒì¼ì—†ìŒ!\n");
+		printf("=> ÆÄÀÏ¾øÀ½!\n");
 		return 0;
 	}
 	for (i = 0; i < 20; i++)
@@ -71,24 +71,24 @@ int loadData(VM *p[])
 			break;
 	}
 	fclose(fp);
-	printf("=> ë¡œë”©ì„±ê³µ!\n");
+	printf("=> ·Îµù¼º°ø!\n");
 	return i;
 }
 
 void searchVMByPrice(VM *p[], int count)
 {
 	int check = 0;
-	int price = 0;
+	int searchPrice = 0;
 
-	printf("ê²€ìƒ‰í•  ë””ì €íŠ¸ ê°€ê²©? ");
-	scanf("%d", price);
+	printf("°Ë»öÇÒ µğÀúÆ® °¡°İ? ");
+	scanf("%d", &searchPrice);
 	printf("\n No     DessertName     type     Price\n");
 	printf("==========================================");
 	for (int i = 0; i < count; ++i)
 	{
 		if (p[i]->price == -1)
 			continue;
-		if (strstr(p[i]->price, price) != NULL)
+		if (p[i]->price == searchPrice)
 		{
 			printf("%d", i + 1);
 			readMenu(p[i]);
@@ -96,6 +96,6 @@ void searchVMByPrice(VM *p[], int count)
 		}
 	}
 	if (check == 0)
-		printf("=> ê²€ìƒ‰ëœ ë°ì´í„° ì—†ìŒ!\n");
+		printf("=> °Ë»öµÈ µ¥ÀÌÅÍ ¾øÀ½!\n");
 	printf("\n");
 }
