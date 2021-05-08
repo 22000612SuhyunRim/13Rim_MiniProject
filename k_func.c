@@ -45,3 +45,28 @@ int selectNumber(VM *p[], int count)
     scanf("%d", &no);
     return no;
 }
+void searchVMByName(VM *p[], int count)
+{
+    int scnt = 0;
+    char searchName[30];
+
+    printf("검색할 디저트 이름?");
+    scanf("%s", searchName);
+
+    printf("\n No     DessertName     type     Price    Score\n");
+    printf("===================================================");
+    for (int i = 0; i < count; i++)
+    {
+        if (p[i] == NULL)
+            continue;
+        if (strstr(p[i]->name, searchName))
+        {
+            printf("%d ", i + 1);
+            readMenu(p[i]);
+            scnt++;
+        }
+    }
+    if (scnt == 0)
+        printf("=>검색된 데이터 없음!");
+    printf("\n");
+}
