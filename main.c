@@ -11,7 +11,7 @@ int main()
 	{
 		plist[i] = (VM *)malloc(sizeof(VM));
 	}
-	count = loadData(plist); // ÆÄÀÏ ºÒ·¯¿À±â
+	count = loadData(plist); // íŒŒì¼ ë¶ˆëŸ¬ì˜¤ê¸°
 	idx = count;
 	while (1)
 	{
@@ -20,42 +20,42 @@ int main()
 		{
 			if (count == 0)
 			{
-				printf("ÀúÀåµÈ »óÇ°ÀÌ ¾ø½À´Ï´Ù.\n");
+				printf("ì €ì¥ëœ ìƒí’ˆì´ ì—†ìŠµë‹ˆë‹¤.\n");
 				continue;
 			}
 		}
 		if (menu == 0)
 		{
-			printf("Á¾·áµÊ! \n");
+			printf("ì¢…ë£Œë¨! \n");
 			break;
 		}
-		else if (menu == 1) // 1. ¸Ş´º Á¶È¸
+		else if (menu == 1) // 1. ë©”ë‰´ ì¡°íšŒ
 		{
 			if (count > 0)
 				listMenu(plist, idx);
 		}
-		else if (menu == 2) // 2. ¸Ş´º Ãß°¡
+		else if (menu == 2) // 2. ë©”ë‰´ ì¶”ê°€
 		{
 			plist[idx] = (VM *)malloc(sizeof(VM));
 			addMenu(plist[idx]);
 			idx++;
 			count++;
 		}
-		else if (menu == 3) // 3. ¸Ş´º ¼öÁ¤
+		else if (menu == 3) // 3. ë©”ë‰´ ìˆ˜ì •
 		{
 			int no = selectNumber(plist, idx);
 			if (no > 0)
 			{
 				updateMenu(plist[no - 1]);
-				printf("=> ¼öÁ¤µÊ!\n");
+				printf("=> ìˆ˜ì •ë¨!\n");
 			}
 		}
-		else if (menu == 4) // 4. ¸Ş´º »èÁ¦
+		else if (menu == 4) // 4. ë©”ë‰´ ì‚­ì œ
 		{
 			int no = selectNumber(plist, idx);
 			if (no > 0)
 			{
-				printf("Á¤¸»·Î »èÁ¦ÇÏ½Ã°Ú½À´Ï±î? (1:»èÁ¦)");
+				printf("ì •ë§ë¡œ ì‚­ì œí•˜ì‹œê² ìŠµë‹ˆê¹Œ? (1:ì‚­ì œ)");
 				int delok;
 				scanf("%d", &delok);
 				if (delok == 1)
@@ -63,25 +63,25 @@ int main()
 					if (plist[no - 1])
 						free(plist[no - 1]);
 					plist[no - 1] = NULL;
-					printf("=> »èÁ¦µÊ!\n");
+					printf("=> ì‚­ì œë¨!\n");
 					count--;
 				}
 			}
 		}
-		else if (menu == 5) // 5. ÆÄÀÏ ÀúÀå
+		else if (menu == 5) // 5. íŒŒì¼ ì €ì¥
 		{
 			saveData(plist, idx);
 		}
-		else if (menu == 6) // 6. °¡°İ °Ë»ö
+		else if (menu == 6) // 6. ê°€ê²© ê²€ìƒ‰
 		{
 			searchVMByPrice(plist, idx);
 		}
 		else if (menu == 7)
-		{ // 7. ÀÌ¸§ °Ë»ö
+		{ // 7. ì´ë¦„ ê²€ìƒ‰
 			searchVMByName(plist, idx);
 		}
 		else if (menu == 8)
-		{ // 8. ÀÎ±âµµ °Ë»ö
+		{ // 8. ì¸ê¸°ë„ ê²€ìƒ‰
 			searchVMByRank(plist, idx);
 		}
 	}
