@@ -70,3 +70,28 @@ void searchVMByName(VM *p[], int count)
         printf("=>검색된 데이터 없음!");
     printf("\n");
 }
+void searchVMByRank(VM *p[], int count)
+{
+    int check = 0;
+    int searchScore = 0;
+
+    printf("검색할 디저트 점수? ");
+    scanf("%d", &searchScore);
+    printf("\n No     DessertName     type     Price    Score\n");
+    printf("===================================================");
+    for (int i = 0; i < count; ++i)
+    {
+        if (p[i]->score == -1)
+            continue;
+        if (p[i]->score == searchScore)
+        {
+            printf("%d", i + 1);
+            readMenu(p[i]);
+            check++;
+        }
+    }
+    if (check == 0)
+        printf("=> 검색된 데이터 없음!\n");
+    printf("\n");
+}
+
