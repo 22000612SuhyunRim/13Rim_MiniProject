@@ -5,9 +5,9 @@
 void addMenu(VM *p)
 {
 	printf("디저트 이름은? ");
-	scanf("%[^\n]s", p->name);
+	scanf("%[^\n]", p->name);
 	printf("디저트 종류는? (P/S/R)");
-	scanf("%[^\n]s", p->type);
+	scanf("%[^\n]", p->type);
 	printf("디저트 가격은? ");
 	scanf("%d", &p->price);
 	printf("디저트 점수는? (0 ~ 100) ");
@@ -23,7 +23,7 @@ void readMenu(VM *p)
 void listMenu(VM *p[], int count)
 {
 	printf("\n No     DessertName     type     Price    Score\n");
-	printf("===================================================");
+	printf("===================================================\n");
 	int check = 0;
 	for (int i = 0; i < count; ++i)
 	{
