@@ -7,7 +7,7 @@ void addMenu(VM *p)
 	getchar();
 	printf("디저트 이름은? ");
 	scanf(" %[^\n]", p->name);
-	printf("디저트 종류는? (P/S/R)");
+	printf("디저트 종류는?(Coffee/Juice/Cake) ");
 	scanf(" %[^\n]", p->type);
 	printf("디저트 가격은? ");
 	scanf("%d", &p->price);
