@@ -7,7 +7,7 @@ void addMenu(VM *p)
 	getchar();
 	printf("디저트 이름은? ");
 	scanf(" %[^\n]", p->name);
-	printf("디저트 종류는? (P/S/R)");
+	printf("디저트 종류는?(Coffee/Juice/Cake) ");
 	scanf(" %[^\n]", p->type);
 	printf("디저트 가격은? ");
 	scanf("%d", &p->price);
@@ -18,7 +18,7 @@ void addMenu(VM *p)
 
 void readMenu(VM *p)
 {
-	printf("   %8s %6s %5d %5d\n", p->name, p->type, p->price, p->score);
+	printf("   %10s %8s %8d %8d\n", p->name, p->type, p->price, p->score);
 }
 
 void listMenu(VM *p[], int count)
@@ -28,7 +28,7 @@ void listMenu(VM *p[], int count)
 	int check = 0;
 	for (int i = 0; i < count; ++i)
 	{
-		if (p[i]->price == -1)
+		if (p[i] == NULL)
 			continue;
 		else
 		{

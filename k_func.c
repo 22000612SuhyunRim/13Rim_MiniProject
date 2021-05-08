@@ -21,11 +21,9 @@ int updateMenu(VM *p)
 {
     getchar();
     printf("디저트 이름은? ");
-    scanf("%[^\n]s", p->name);
-    getchar();
-    printf("디저트 종류는? (P/S/R)");
-    scanf("%[^\n]s", p->type);
-    getchar();
+    scanf(" %[^\n]", p->name);
+    printf("디저트 종류는?(Coffee/Juice/Cake) ");
+    scanf(" %[^\n]", p->type);
     printf("디저트 가격은? ");
     scanf("%d", &p->price);
     printf("디저트 점수는? (0 ~ 100) ");
