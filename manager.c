@@ -1,5 +1,10 @@
 //manager.c
 #include "product.h"
+#include <string.h>
+
+void addMenu(VM *p);
+void readMenu(VM *p);
+void listMenu(VM *p[], int count);
 
 void saveData(VM *p[], int count) {
 	FILE* fp;
@@ -29,4 +34,24 @@ int loadData(VM *p[]) {
 	fclose(fp);
 	printf("=> 로딩성공!\n");
 	return count;
+}
+
+void searchVMByPrice(VM *p[], int count) {
+	int check=0;
+	int price=0;
+
+	printf("검색할 디저트 가격? ");
+	scanf("%d", price);
+	printf("\n No     DessertName     type     Price\n");
+	printf("==========================================");
+	for(int i=0;i<count;++i) {
+		if(p[i].price==-1) continue;
+		if(strstr(p[i].price, price)!=NULL) {
+			printf("%d", i+1);
+			readMenu(p[i]);
+			check++;
+		}
+	}
+	if(check==0) printf("=> 검색된 데이터 없음!\n");
+	printf("\n");
 }
