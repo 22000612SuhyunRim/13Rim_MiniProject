@@ -22,6 +22,7 @@ int updateMenu(VM *p)
     getchar();
     printf("디저트 이름은? ");
     scanf("%[^\n]s", p->name);
+    getchar();
     printf("디저트 종류는? (P/S/R)");
     scanf("%[^\n]s", p->type);
     getchar();
@@ -54,7 +55,7 @@ void searchVMByName(VM *p[], int count)
     scanf("%s", searchName);
 
     printf("\n No     DessertName     type     Price    Score\n");
-    printf("===================================================");
+    printf("===================================================\n");
     for (int i = 0; i < count; i++)
     {
         if (p[i] == NULL)
@@ -78,7 +79,7 @@ void searchVMByRank(VM *p[], int count)
     printf("검색할 디저트 점수? ");
     scanf("%d", &searchScore);
     printf("\n No     DessertName     type     Price    Score\n");
-    printf("===================================================");
+    printf("===================================================\n");
     for (int i = 0; i < count; ++i)
     {
         if (p[i]->score == -1)
@@ -94,4 +95,3 @@ void searchVMByRank(VM *p[], int count)
         printf("=> 검색된 데이터 없음!\n");
     printf("\n");
 }
-
