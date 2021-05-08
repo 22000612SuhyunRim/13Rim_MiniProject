@@ -29,3 +29,4 @@ int loadData(VM *p[]) {
 	fclose(fp);
 	printf("=> 로딩성공!\n");
 	return count;
+}
