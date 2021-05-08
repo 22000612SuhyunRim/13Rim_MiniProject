@@ -18,7 +18,7 @@ void addMenu(VM *p)
 
 void readMenu(VM *p)
 {
-	printf("   %8s %6s %5d %5d\n", p->name, p->type, p->price, p->score);
+	printf("   %10s %8s %8d %8d\n", p->name, p->type, p->price, p->score);
 }
 
 void listMenu(VM *p[], int count)

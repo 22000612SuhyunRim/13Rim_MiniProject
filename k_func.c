@@ -23,7 +23,7 @@ int updateMenu(VM *p)
     printf("디저트 이름은? ");
     scanf("%[^\n]s", p->name);
     getchar();
-    printf("디저트 종류는? (P/S/R)");
+    printf("디저트 종류는?(Coffee/Juice/Cake) ");
     scanf("%[^\n]s", p->type);
     getchar();
     printf("디저트 가격은? ");
