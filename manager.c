@@ -28,7 +28,7 @@ void listMenu(VM *p[], int count)
 	int check = 0;
 	for (int i = 0; i < count; ++i)
 	{
-		if (p[i]->price == -1)
+		if (p[i] == NULL)
 			continue;
 		else
 		{
