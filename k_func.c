@@ -37,3 +37,11 @@ int deleteMenu(VM *p)
     p->score = -1;
     return 1;
 }
+int selectNumber(VM *p[], int count)
+{
+    int no;
+    listMenu(p, count);
+    printf("번호는 (취소: 0)? ");
+    scanf("%d", &no);
+    return no;
+}
