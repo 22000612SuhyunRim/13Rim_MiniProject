@@ -4,7 +4,7 @@ int updateMenu(VM *p)
     getchar();
     printf("디저트 이름은? ");
     fgets(p->name, 100, stdin);
-    printf("디저트 종류는? ");
+    printf("디저트 종류는? (P/S/R)");
     scanf("%c", &p->type);
     getchar();
     printf("디저트 가격은? ");
