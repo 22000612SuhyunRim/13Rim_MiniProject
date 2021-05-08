@@ -2,9 +2,23 @@
 #include "product.h"
 #include <string.h>
 
-void addMenu(VM *p);
-void readMenu(VM *p);
-void listMenu(VM *p[], int count);
+void addMenu(VM *p) {
+	printf("디저트 이름은? ");
+	scanf(" %[^\n]", p->name);
+	printf("디저트 종류는? ");
+	scanf(" %[^\n]", p->type);
+	printf("디저트 가격은? ");
+	scanf("%d", p->price);
+	printf("=> 추가됨!\n");
+}
+
+void readMenu(VM *p) {
+
+}
+
+void listMenu(VM *p[], int count) {
+
+}
 
 void saveData(VM *p[], int count) {
 	FILE* fp;
