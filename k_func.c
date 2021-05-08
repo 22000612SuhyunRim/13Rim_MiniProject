@@ -31,3 +31,9 @@ int updateMenu(VM *p)
     scanf("%d", &p->score);
     return 1;
 }
+int deleteMenu(VM *p)
+{
+    p->price = -1;
+    p->score = -1;
+    return 1;
+}
