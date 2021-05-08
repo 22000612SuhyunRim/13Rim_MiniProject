@@ -13,11 +13,21 @@ void addMenu(VM *p) {
 }
 
 void readMenu(VM *p) {
-
+	printf("   %8s %6s %5d\n", p.name, p.type, p.price);
 }
 
-void listMenu(VM *p[], int count) {
-
+void listMenu(VM *p[], int count) {	
+	printf("\n No     DessertName     type     Price\n");
+	printf("==========================================");
+	int check=0;
+	for(int i=0;i<count;++i) {
+		if(p[i]->price==-1) continue;
+		else {
+			printf("%d", check+1);
+			readMenu(*p[i]);
+			check++;
+		}
+	}
 }
 
 void saveData(VM *p[], int count) {
