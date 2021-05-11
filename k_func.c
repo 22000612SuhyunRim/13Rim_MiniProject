@@ -2,17 +2,17 @@
 int selectMenu()
 {
     int menu;
-    printf("\n*** µðÀúÆ® ÀÚÆÇ±â ÇÁ·Î±×·¥ ***\n");
-    printf("1. ¸Þ´º Á¶È¸\n");
-    printf("2. ¸Þ´º Ãß°¡\n");
-    printf("3. ¸Þ´º ¼öÁ¤\n");
-    printf("4. ¸Þ´º »èÁ¦\n");
-    printf("5. ¸Þ´º ÀúÀå\n");
-    printf("6. °¡°Ý °Ë»ö\n");
-    printf("7. ÀÌ¸§ °Ë»ö\n");
-    printf("8. Á¡¼ö °Ë»ö\n");
-    printf("0. Á¾·á\n\n");
-    printf("=> ¿øÇÏ´Â ¸Þ´º´Â? ");
+    printf("\n*** ë””ì €íŠ¸ ìžíŒê¸° í”„ë¡œê·¸ëž¨ ***\n");
+    printf("1. ë©”ë‰´ ì¡°íšŒ\n");
+    printf("2. ë©”ë‰´ ì¶”ê°€\n");
+    printf("3. ë©”ë‰´ ìˆ˜ì •\n");
+    printf("4. ë©”ë‰´ ì‚­ì œ\n");
+    printf("5. ë©”ë‰´ ì €ìž¥\n");
+    printf("6. ê°€ê²© ê²€ìƒ‰\n");
+    printf("7. ì´ë¦„ ê²€ìƒ‰\n");
+    printf("8. ì ìˆ˜ ê²€ìƒ‰\n");
+    printf("0. ì¢…ë£Œ\n\n");
+    printf("=> ì›í•˜ëŠ” ë©”ë‰´ëŠ”? ");
     scanf("%d", &menu);
 
     return menu;
@@ -20,13 +20,13 @@ int selectMenu()
 int updateMenu(VM *p)
 {
     getchar();
-    printf("µðÀúÆ® ÀÌ¸§Àº? ");
+    printf("ë””ì €íŠ¸ ì´ë¦„ì€? ");
     scanf(" %[^\n]", p->name);
-    printf("µðÀúÆ® Á¾·ù´Â?(Coffee/Juice/Cake) ");
+    printf("ë””ì €íŠ¸ ì¢…ë¥˜ëŠ”?(Coffee/Juice/Cake) ");
     scanf(" %[^\n]", p->type);
-    printf("µðÀúÆ® °¡°ÝÀº? ");
+    printf("ë””ì €íŠ¸ ê°€ê²©ì€? ");
     scanf("%d", &p->price);
-    printf("µðÀúÆ® Á¡¼ö´Â? (0 ~ 100) ");
+    printf("ë””ì €íŠ¸ ì ìˆ˜ëŠ”? (0 ~ 100) ");
     scanf("%d", &p->score);
     return 1;
 }
@@ -40,7 +40,7 @@ int selectNumber(VM *p[], int count)
 {
     int no;
     listMenu(p, count);
-    printf("¹øÈ£´Â (Ãë¼Ò: 0)? ");
+    printf("ë²ˆí˜¸ëŠ” (ì·¨ì†Œ: 0)? ");
     scanf("%d", &no);
     return no;
 }
@@ -49,7 +49,7 @@ void searchVMByName(VM *p[], int count)
     int scnt = 0;
     char searchName[30];
 
-    printf("°Ë»öÇÒ µðÀúÆ® ÀÌ¸§?");
+    printf("ê²€ìƒ‰í•  ë””ì €íŠ¸ ì´ë¦„?");
     scanf("%s", searchName);
 
     printf("\n No     DessertName     type     Price    Score\n");
@@ -66,7 +66,7 @@ void searchVMByName(VM *p[], int count)
         }
     }
     if (scnt == 0)
-        printf("=>°Ë»öµÈ µ¥ÀÌÅÍ ¾øÀ½!");
+        printf("=>ê²€ìƒ‰ëœ ë°ì´í„° ì—†ìŒ!");
     printf("\n");
 }
 void searchVMByRank(VM *p[], int count)
@@ -74,7 +74,7 @@ void searchVMByRank(VM *p[], int count)
     int check = 0;
     int searchScore = 0;
 
-    printf("°Ë»öÇÒ µðÀúÆ® Á¡¼ö? ");
+    printf("ê²€ìƒ‰í•  ë””ì €íŠ¸ ì ìˆ˜? ");
     scanf("%d", &searchScore);
     printf("\n No     DessertName     type     Price    Score\n");
     printf("===================================================\n");
@@ -90,6 +90,7 @@ void searchVMByRank(VM *p[], int count)
         }
     }
     if (check == 0)
-        printf("=> °Ë»öµÈ µ¥ÀÌÅÍ ¾øÀ½!\n");
+
+        printf("=> ê²€ìƒ‰ëœ ë°ì´í„° ì—†ìŒ!\n");
     printf("\n");
 }
