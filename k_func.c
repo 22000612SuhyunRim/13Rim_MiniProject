@@ -1,4 +1,4 @@
-#include "product.h"
+#include "product.h" //구현 완료
 int selectMenu()
 {
     int menu;
@@ -90,6 +90,6 @@ void searchVMByRank(VM *p[], int count)
         }
     }
     if (check == 0)
-        printf("=> 검색된 데이터 없음!\n");
+        printf("=> 검색된 데이터 없음!!\n");
     printf("\n");
 }
