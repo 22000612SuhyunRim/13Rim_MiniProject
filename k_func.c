@@ -1,4 +1,4 @@
-#include "product.h" //구현 완료
+#include "product.h"
 int selectMenu()
 {
     int menu;

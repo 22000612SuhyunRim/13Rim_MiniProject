@@ -18,7 +18,7 @@
     강하림
     - Update 함수
     - Delete 함수
-    - Selection 함수
+    - SelectNumber/ SelectMenu 함수
     - Search 함수 (이름)
     - Search 함수 (인기도)
     임수현
